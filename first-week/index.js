@@ -20,7 +20,7 @@ buttons_wrapper.addEventListener('click', (event) => {
 
 
 
-function task2StartFunc(){
+function task2StartFunc() {
     console.log("Запускаем таймер")
     for (let i = 5; i >= 0; i--) {
         alert(i)
@@ -28,7 +28,7 @@ function task2StartFunc(){
     console.log("Обратный отсчет закончен")
 }
 
-function task3StartFunc(){
+function task3StartFunc() {
     //Кто разработал язык программирования JavaScript?
     alert("Брендан Эйх в компании Netscape")
     //За сколько дней был разработан JavaScript?
@@ -41,14 +41,13 @@ function task3StartFunc(){
     alert("ECMAScript (ES)")
 }
 
-function task4StartFunc(){
-    //Сколько будет 2 + 2? Ответ: если ты ответил 4, то ты прав.
+function task4StartFunc() {
     prompt("Сколько будет 2 + 2?")
     alert("Ответ: если ты ответил 4, то ты прав.")
-    //Чему равен корень из 9? Ответ: если ты ответил 3, то ты прав.
+
     prompt("Чему равен корень из 9?")
     alert("Ответ: если ты ответил 3, то ты прав.")
-    //Сколько будет 2 в 5-й степени? Ответ: если ты ответил 32, то ты прав.
+
     prompt("Сколько будет 2 в 5-й степени?")
     alert("Ответ: если ты ответил 32, то ты прав.")
 }
