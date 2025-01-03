@@ -40,7 +40,7 @@ function dataTypesConversionFunc2() {
     //8
     console.log(Boolean(1), typeof Boolean(1)) // явное
     //9
-    console.log(String(001), typeof String(001)) // явное
+    // console.log(String(001), typeof String(001)) // явное
     //10
     console.log(Number('Hello World'), typeof Number('Hello World')) // явное
 
@@ -68,7 +68,7 @@ function dataTypesConversionFunc2() {
     // 4
     console.log(String(false)); // 'false'
     // 5
-    console.log(Boolean(0000000)); // false
+    // console.log(Boolean(0000000)); // false
     // 6
     console.log(Boolean(0.0000001)); // true
     // 7
