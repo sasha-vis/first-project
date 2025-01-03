@@ -30,6 +30,21 @@ buttons_wrapper.addEventListener('click', (event) => {
             case 'strings-task3':
                 stringsFunction3()
                 break
+            case 'comparison-operators-task':
+                comparisonOperatorsFunction()
+                break
+            case 'comparison-operators-task2':
+                comparisonOperatorsFunction2()
+                break
+            case 'comparison-operators-task3':
+                comparisonOperatorsFunction3()
+                break
+            case 'logical-operators-task':
+                logicalOperatorsFunction()
+                break
+            case 'logical-operators-task2':
+                logicalOperatorsFunction2()
+                break
             default:
                 break
         }
