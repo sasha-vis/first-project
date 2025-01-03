@@ -21,6 +21,15 @@ buttons_wrapper.addEventListener('click', (event) => {
             case 'data-types-conversion-task2':
                 dataTypesConversionFunc2()
                 break
+            case 'strings-task':
+                stringsFunction()
+                break
+            case 'strings-task2':
+                stringsFunction2()
+                break
+            case 'strings-task3':
+                stringsFunction3()
+                break
             default:
                 break
         }
