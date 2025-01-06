@@ -45,6 +45,15 @@ buttons_wrapper.addEventListener('click', (event) => {
             case 'logical-operators-task2':
                 logicalOperatorsFunction2()
                 break
+            case 'additional-task':
+                additionalFunction()
+                break
+            case 'additional-task2':
+                additionalFunction2()
+                break
+            case 'additional-task3':
+                additionalFunction3()
+                break
             default:
                 break
         }
