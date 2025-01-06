@@ -1,5 +1,5 @@
 function additionalFunction() {
-    let javaScriptDescription = "JavaScript — мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией спецификации ECMAScript. JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений."
+    const javaScriptDescription = "JavaScript — мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией спецификации ECMAScript. JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений."
     
     // Создаем переменную и присваиваем ей срез строки javaScriptDescription
     // начиная от первого символа и заканчивая символом по середине строки,
@@ -14,11 +14,11 @@ function additionalFunction() {
     slicedString = slicedString.repeat(3)
     
     // Выводим символ который ровно по середине строки и саму строку
-    console.log(slicedString[Math.floor((slicedString.length-1)/2)])
-    console.log(slicedString)
+    console.log(`Symbol: ${slicedString[Math.floor((slicedString.length-1)/2)]}\nString: ${slicedString}`)
 }
 
-// Создаем переменную с валютой, которую будем выводить в строке, обычно используется если валюта изменится
+// Создаем переменную с валютой, которую будем выводить в строке
+// Частая практика, так как валюта может измениться
 const currency = '$'
 
 // Массив объектов, каждый объект это клиент с информацией о нем
@@ -57,96 +57,87 @@ function additionalFunction2() {
     // Мы изначально ему присвоили null чтобы войти в цикл, а также мы ему присваиваем null
     // если имя невалидное, чтобы снова войти в цикл
     // Также ему по умолчанию присвоится null если нажмем кнопку Отмена
-    do {
-        clientName = prompt('Введите ваше имя:')
+    while (!clientName) {
 
-        // В случае с нажатием кнопки Отмена - мы выйдем из функции
-        if (clientName === null) return alert(`До свидания!`)
+        // Получаем строку и обрезаем пробелы
+        clientName = prompt('Введите ваше имя:')?.trim()
 
-        // Убираем пробелы
-        clientName = clientName.trim()
+        // Выходим так как пользователь нажал Отмена, потому что null?.trim() === undefined
+        if (clientName === undefined) return alert(`До свидания!`)
 
-        // Если имя больше меньше 2 символов или больше 10 или в имени есть цифры или
+        // Если имя меньше 2 символов или больше 10 или в имени есть цифры или
         // нету первой буквы заглавной - присвоем имени null чтобы перейти к следующей итерации по циклу
         if (clientName.length < 2 || clientName.length > 10 || !/^[A-ZА-Я]/.test(clientName) || /\d/.test(clientName)) {
             alert('Имя не удовлетворяет условиям! Попробуйте еще раз.\nВы должны написать только "Имя" с заглавной буквы, а также не использовать цифры. Длина имени должна быть не меньше 2 символов и не превышать 10.')
             clientName = null
             continue
         }
+    }
 
-        // Присвоим в переменную client найденного клиента по имени из массива клиентов
-        let client = clients.find(client => client.clientName === clientName)
+    // Присвоим в переменную client найденного клиента по имени из массива клиентов
+    const client = clients.find(client => client.clientName === clientName)
 
-        // Если такого клиента нет, то можем создать нового добавив новый объект в массив клиентов подтвердив действие
-        // Запишется новый клиент с новым именим с нулевыми данными
-        // А если есть найденый клиент, то продолжим задачу с ним
-        if (!client) {
-            if (!confirm('Такого клиента нет, хотите создать нового?')) return alert(`До свидания!`)
-            clients.push({ clientName: clientName, clientSpentForAllTime: 0, clientSpentToday: 0, discount: 0 })
-            alert(`Новый клиент ${clientName} успешно добавлен!`)
-        } else {
+    // Если такого клиента нет, то можем создать нового добавив новый объект в массив клиентов подтвердив действие
+    // Запишется новый клиент с новым именим с нулевыми данными
+    // А если есть найденый клиент, то продолжим задачу с ним
+    if (!client) {
+        if (!confirm('Такого клиента нет, хотите создать нового?')) return alert(`До свидания!`)
+        clients.push({ clientName: clientName, clientSpentForAllTime: 0, clientSpentToday: 0, discount: 0 })
+        alert(`Новый клиент ${clientName} успешно добавлен!`)
+    } else {
 
-            // Можем выйти из функции нажав Отмена
-            if (!confirm(`Здравствуйте, ${client.clientName}! Вам предоставляется скидка в ${client.discount}%!\nХотите сделать заказ?`)) return alert(`До свидания, ${client.clientName}!`)
+        // Можем выйти из функции нажав Отмена
+        if (!confirm(`Здравствуйте, ${client.clientName}! Вам предоставляется скидка в ${client.discount}%!\nХотите сделать заказ?`)) return alert(`До свидания, ${client.clientName}!`)
 
-            let orderSum = null
-
-            // Запустим цикл для ввода чисел, нельзя вводить что то другое
-            // Также если нажмем Отмена, то выйдет из функции
-            do {
-                orderSum = prompt('Введите сумму для заказа', 25)
-                if (orderSum === null) return alert(`До свидания, ${client.clientName}!`)
-
-                // Убираем пробелы
-                orderSum = orderSum.trim()
-            } while (!orderSum || isNaN(orderSum))
-        
-            // Присваиваем сегодняшнюю опату в переменную по скидке, которая есть
-            // А также прибавляем потраченую сумму в переменную clientSpentForAllTime
-            client.clientSpentToday = Number(orderSum) * (1 - client.discount / 100)
-            client.clientSpentForAllTime += client.clientSpentToday
-        
-            // Добавляем новую скидку в зависимости от потраченой суммы за все время
-            if (client.clientSpentForAllTime > 100 && client.clientSpentForAllTime < 300) {
-                client.discount = 10
-            } else if (client.clientSpentForAllTime > 300 && client.clientSpentForAllTime < 500) {
-                client.discount = 20
-            } else if (client.clientSpentForAllTime > 500) {
-                client.discount = 30
-            }
-        
-            // Завершаем задачу
-            alert(`Спасибо, ${client.clientName}! К оплате ${client.clientSpentToday}${currency}.\nЗа все время в нашем ресторане вы потратили ${client.clientSpentForAllTime}${currency}. Ваша скидка на будущую покупку теперь составляет ${client.discount}%.\nБудем рады видеть вас снова!`)
+        let orderSum = null
+            
+        // Запустим цикл для проверки на число или falsy значение, например пустую строку
+        // Если нажмем Отмена, то выйдем из цикла
+        while (!orderSum || isNaN(orderSum)) {
+            orderSum = prompt('Введите сумму для заказа', 25)?.trim()
+            if (orderSum === undefined) return alert(`До свидания, ${client.clientName}!`)
         }
-
-    } while (!clientName)
+    
+        // Присваиваем сегодняшнюю оплату со скидкой в переменную
+        // А также прибавляем потраченую сумму в переменную clientSpentForAllTime
+        client.clientSpentToday = Number(orderSum) * (1 - client.discount / 100)
+        client.clientSpentForAllTime += client.clientSpentToday
+    
+        // Добавляем новую скидку в зависимости от потраченой суммы за все время
+        if (client.clientSpentForAllTime > 100 && client.clientSpentForAllTime < 300) {
+            client.discount = 10
+        } else if (client.clientSpentForAllTime > 300 && client.clientSpentForAllTime < 500) {
+            client.discount = 20
+        } else if (client.clientSpentForAllTime > 500) {
+            client.discount = 30
+        }
+    
+        alert(`Спасибо, ${client.clientName}! К оплате ${client.clientSpentToday}${currency}.\nЗа все время в нашем ресторане вы потратили ${client.clientSpentForAllTime}${currency}. Ваша скидка на будущую покупку теперь составляет ${client.discount}%.\nБудем рады видеть вас снова!`)
+    }
 }
 
 function additionalFunction3() {
     let password = null
 
-    // запускаем цикл для ввода строки по условию если password равен null
-    // мы изначально ему присвоили null чтобы войти в цикл, а также мы ему присваиваем null
-    // если пароль невалидный, чтобы снова войти в цикл
-    // также ему по умолчанию присвоится null если нажмем кнопку Отмена
-    do {
-        password = prompt('Введите пароль:')
+    while (!password) {
 
-        // В случае с нажатием кнопки Отмена - мы выйдем из функции
-        if (password === null) return alert(`До свидания!`)
-        
-        // убираем пробелы
-        password = password.trim()
+        // Пользователь вводит пароль и сразу обрезаем пробелы
+        // Если пользователь нажмет Отмена, будет null, но мы сразу делаем ?.trim()
+        // null?.trim() === undefined
+        password = prompt('Введите пароль:')?.trim()
 
-        // если пароль больше меньше 3 символов или больше 30 или в пароле нету цифры или нету заглавной буквы
-        // присвоем паролю null чтобы перейти к следующей итерации по циклу
+        // Выходим так как пользователь нажал Отмена
+        if (password === undefined) return alert(`До свидания!`)
+
+        // Если длина строки меньше 3 или больше 30 
+        // или в строке нету хоть одной латинской заглавной буквы или в строке нету хоть одной цифры,
+        // то присваиваем паролю null и переходим к следующей итерации по циклу
         if (password.length < 3 || password.length > 30 || !/[A-Z]/.test(password) || !/\d/.test(password)) {
             alert('Пароль не удовлетворяет условиям!\nПароль должен содержать хотя бы одну заглавную букву и одну цифру, а также длина пароля не должна быть меньше 3 символов и не должна превышать 30 символов.\nПопробуйте еще раз.')
             password = null
             continue
         }
-
-        // если дошли сюда - значит все ОК
+        
         alert('Пароль валидный. Добро пожаловать в аккаунт!')
-    } while (!password)
+    }
 }
