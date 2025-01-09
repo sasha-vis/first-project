@@ -1,4 +1,4 @@
-function dataTypesConversionFunc() {
+function dataTypesTask2() {
     const string = "Строка"
     const number = 5
     const boolean = true
@@ -21,7 +21,7 @@ function dataTypesConversionFunc() {
     console.log(Number(bigint), Boolean(bigint), String(bigint))
 }
 
-function dataTypesConversionFunc2() {
+function dataTypesTask3() {
     console.log(Number('10'), typeof Number('10')) // явное
     //1
     console.log(+'50', typeof +'50') // неявное

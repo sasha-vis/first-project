@@ -1,4 +1,4 @@
-function comparisonOperatorsFunction() {
+function comparisonOperatorsTask() {
     const existingUserLogin = "the_best_user"
     const existingUserPassword = "12345678"
 
@@ -12,7 +12,7 @@ function comparisonOperatorsFunction() {
     }
 }
 
-function comparisonOperatorsFunction2() {
+function comparisonOperatorsTask2() {
     const questions = {
         "Сколько будет 2 + 2?": 4,
         "Сколько будет 2 * 2?": 4,
@@ -36,7 +36,7 @@ function comparisonOperatorsFunction2() {
     alert(`Конец теста!\nПравильные ответы — ${correctAnswers};\nНеправильные ответы — ${incorrectAnswers}.`)
 }
 
-function comparisonOperatorsFunction3() {
+function comparisonOperatorsTask3() {
     const questions = {
         "JavaScript появился в 1995 году?": true,
         "Спецификация JavaScript называется ECMAScript?": true,

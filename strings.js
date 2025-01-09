@@ -1,4 +1,4 @@
-function stringsFunction() {
+function stringsTask() {
     const myName = "Александр"
     const programmingLanguage = "JavaScript"
     const courseCreatorName = "Владилена Минина"
@@ -30,7 +30,7 @@ function stringsFunction() {
     alert(`Вас зовут ${userName} и вам ${userAge} лет`)
 }
 
-function stringsFunction2() {
+function stringsTask2() {
     // вызываем модальное окно пока текст введенный пользователем будет пустой строкой или если его длинна меньше двух символов
     // чтобы можно было сделать срез
     let userString = null
@@ -55,7 +55,7 @@ function stringsFunction2() {
     alert(string)
 }
 
-function stringsFunction3() {
+function stringsTask3() {
     // вызываем модальное окно пока текст введенный пользователем не будет содержать хотябы 2 слова, то есть иметь хотябы 1 пробел
     let userText = null
     while (userText === null || !userText.includes(' ')) {

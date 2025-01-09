@@ -1,4 +1,4 @@
-function logicalOperatorsFunction() {
+function logicalOperatorsTask() {
     // for (let i = 0; i < 3; i += 1) {
     //     let newStudent = prompt('Введите имя нового студента!');
     //     if (newStudent) {
@@ -30,7 +30,7 @@ function logicalOperatorsFunction() {
     } while (i < 3)
 }
 
-function logicalOperatorsFunction2() {
+function logicalOperatorsTask2() {
     let sum = 0
     for (let i = 0; i <= 100; i++) {
         sum += i

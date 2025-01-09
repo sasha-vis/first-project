@@ -1,4 +1,4 @@
-function additionalFunction() {
+function additionalTask() {
     const javaScriptDescription = "JavaScript — мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией спецификации ECMAScript. JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений."
     
     // Создаем переменную и присваиваем ей срез строки javaScriptDescription
@@ -50,13 +50,13 @@ const clients = [
     }
 ]
 
-function additionalFunction2() {
+function additionalTask2() {
     let clientName = null
 
     // Запускаем цикл для ввода строки по условию если clientName равен null
     // Мы изначально ему присвоили null чтобы войти в цикл, а также мы ему присваиваем null
     // если имя невалидное, чтобы снова войти в цикл
-    // Также ему по умолчанию присвоится null если нажмем кнопку Отмена
+    // Также ему по умолчанию присвоится undefined если нажмем кнопку Отмена
     while (!clientName) {
 
         // Получаем строку и обрезаем пробелы
@@ -116,7 +116,7 @@ function additionalFunction2() {
     }
 }
 
-function additionalFunction3() {
+function additionalTask3() {
     let password = null
 
     while (!password) {

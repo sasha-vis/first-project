@@ -1,4 +1,4 @@
-function task2StartFunc() {
+function syntaxTask() {
     console.log("Запускаем таймер")
     for (let i = 5; i >= 0; i--) {
         alert(i)
@@ -6,7 +6,7 @@ function task2StartFunc() {
     console.log("Обратный отсчет закончен")
 }
 
-function task3StartFunc() {
+function syntaxTask2() {
     //Кто разработал язык программирования JavaScript?
     alert("Брендан Эйх в компании Netscape")
     //За сколько дней был разработан JavaScript?
@@ -19,7 +19,7 @@ function task3StartFunc() {
     alert("ECMAScript (ES)")
 }
 
-function task4StartFunc() {
+function syntaxTask3() {
     prompt("Сколько будет 2 + 2?")
     alert("Ответ: если ты ответил 4, то ты прав.")
 

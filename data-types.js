@@ -1,4 +1,4 @@
-function dataTypesFunc() {
+function dataTypesTask() {
     const string = "Строка"
     const number = 5
     const boolean = true
